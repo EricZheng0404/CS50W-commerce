@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h1>Create New Listing</h1>
+    
+    <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data ">
+    {% csrf_token %}
+    <label>Enter a Title: </label><br>
+    <input type="text" name="title" placeholder="Title" autofocus><br>
+    <label>Enter a Description: </label><br>
+    <input type="text" name="description" placeholder="Descritpion"><br>
+    <label>Enter a Category: </label><br>
+    <input type="text" name="category" placeholder="Category" autofocus><br>
+    <label>Enter a Bid ($): </label><br>
+    <input type="number" name="start_bid" placeholder="Start Bid"><br>
+    <label>Enter an Image URL: </label><br>
+    <input type="text" name="image_url" placeholder="Image URL"><br>
+    <input type="submit"><br>
+    </form>
+
+{% endblock %}

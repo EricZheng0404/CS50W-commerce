@@ -1,0 +1,23 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Category: {{ category_name }}</h2>
+    <div>
+    <ul>
+        {% for listing in listings %}
+        <h1>Item Number: {{ listing.id }}</h1>
+        {% if listing.image_url %} 
+        <img src="{{ listing.image_url }}" alt="Listing Image" width="400px"><br>
+        {% endif %}
+        <a href="{% url 'listing' listing.id %}"> <!--to the url flight/flight.id-->
+            <li>{{ listing.title }}</li>
+        </a>
+        <li>Price: ${{ listing.start_bid }}</li>
+        <hr>
+        {% endfor %}
+    </ul>
+    <hr>
+    <br>
+    </div>
+    
+{% endblock %}
